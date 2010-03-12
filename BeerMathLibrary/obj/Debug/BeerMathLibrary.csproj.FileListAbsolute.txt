@@ -1,5 +1,0 @@
-C:\Users\Christy\Documents\Visual Studio 2008\Projects\BeerMath\BeerMathLibrary\bin\Debug\BeerMath.dll
-C:\Users\Christy\Documents\Visual Studio 2008\Projects\BeerMath\BeerMathLibrary\bin\Debug\BeerMath.pdb
-C:\Users\Christy\Documents\Visual Studio 2008\Projects\BeerMath\BeerMathLibrary\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Christy\Documents\Visual Studio 2008\Projects\BeerMath\BeerMathLibrary\obj\Debug\BeerMath.dll
-C:\Users\Christy\Documents\Visual Studio 2008\Projects\BeerMath\BeerMathLibrary\obj\Debug\BeerMath.pdb

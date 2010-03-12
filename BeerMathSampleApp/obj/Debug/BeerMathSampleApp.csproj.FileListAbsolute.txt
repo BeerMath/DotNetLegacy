@@ -8,3 +8,5 @@ C:\Users\Christy\Documents\Visual Studio 2008\Projects\BeerMath\BeerMathSampleAp
 C:\Users\Christy\Documents\Visual Studio 2008\Projects\BeerMath\BeerMathSampleApp\obj\Debug\BeerMath.Sample.pdb
 C:\Users\Christy\Documents\Visual Studio 2008\Projects\BeerMath\BeerMathSampleApp\bin\Debug\BeerMath.dll
 C:\Users\Christy\Documents\Visual Studio 2008\Projects\BeerMath\BeerMathSampleApp\bin\Debug\BeerMath.pdb
+C:\Users\Christy\Documents\BeerMath\BeerMathSampleApp\obj\Debug\BeerMath.Sample.exe
+C:\Users\Christy\Documents\BeerMath\BeerMathSampleApp\obj\Debug\BeerMath.Sample.pdb
