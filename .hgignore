@@ -1,0 +1,9 @@
+# use glob syntax.
+syntax: glob
+*.pidb
+.DS_Store
+*.userprefs
+*.suo
+*.mdb
+*/bin/Debug/*
+*/bin/Release/*
