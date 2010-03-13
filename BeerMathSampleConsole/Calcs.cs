@@ -30,5 +30,16 @@ namespace BeerMath.Sample.Console
 
 		    System.Console.WriteLine(String.Format("MCUs = {0}", MCUs));
 		}
+
+		public static void SrmTest()
+		{
+			decimal lbsGrain = PromptDecimal("Pounds of grain");
+        		decimal degLovibond = PromptDecimal("Degrees Lovibond");
+        		decimal totalVolume = PromptDecimal("Total volume");
+
+            decimal SRM = Malt.CalculateSrm(lbsGrain, degLovibond, totalVolume);
+
+		    System.Console.WriteLine(String.Format("SRM = {0}", SRM));
+		}
 	}
 }
