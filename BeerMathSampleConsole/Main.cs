@@ -22,6 +22,7 @@ namespace BeerMath.Sample.Console
 		{
 			System.Console.WriteLine("1 - MCUs");
 			System.Console.WriteLine("2 - SRM");
+			System.Console.WriteLine("3 - EBC");
 			System.Console.WriteLine("0 - EXIT");
 		}
 		public static void Gosub(int choice)
@@ -33,6 +34,9 @@ namespace BeerMath.Sample.Console
 				break;
 			case 2 :
 				Calcs.SrmTest();
+				break;
+			case 3 :
+				Calcs.EbcTest();
 				break;
 			default:
 				break;
@@ -48,7 +52,7 @@ namespace BeerMath.Sample.Console
 		{
 			string entry = System.Console.ReadLine();
 			int answer = Int32.Parse(entry);
-			if (answer > 2)
+			if (answer > 3)
 			{
 				answer = 0;
 			}

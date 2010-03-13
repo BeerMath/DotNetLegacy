@@ -41,5 +41,16 @@ namespace BeerMath.Sample.Console
 
 		    System.Console.WriteLine(String.Format("SRM = {0}", SRM));
 		}
+
+		public static void EbcTest()
+		{
+			decimal lbsGrain = PromptDecimal("Pounds of grain");
+        		decimal degLovibond = PromptDecimal("Degrees Lovibond");
+        		decimal totalVolume = PromptDecimal("Total volume");
+
+            decimal EBC = Malt.CalculateEbc(lbsGrain, degLovibond, totalVolume);
+
+		    System.Console.WriteLine(String.Format("EBC = {0}", EBC));
+		}
 	}
 }

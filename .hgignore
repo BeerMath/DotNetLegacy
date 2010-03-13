@@ -3,6 +3,7 @@ syntax: glob
 *.pidb
 .DS_Store
 *.userprefs
+*.resources
 *.suo
 *.mdb
 */bin/Debug/*
