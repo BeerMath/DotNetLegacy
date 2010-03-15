@@ -71,55 +71,32 @@ using System;
 namespace BeerMath
 {
 
-	public enum GravityType { Abv, Abw }
-
-	public class Gravity
+	/// <summary>
+	/// Alcohol by weight
+	/// </summary>
+	public class Abw : AlcoholStrength
 	{
 		private decimal _Value;
-		private GravityType _Type;
 
-		public Gravity ()
+		public Abw ()
 		{
 			_Value = 0;
-			_Type = GravityType.Abv;
 		}
 		
-		public Gravity (decimal Value, GravityType Type)
+		public Abw(decimal Value)
 		{
 			_Value = Value;
-			_Type = Type;
 		}
 		
-		public decimal Abv 
+		public new decimal Value
 		{
-			get { return _GetAbv(); }
-		}
-
-		public decimal Abw
-		{
-			get { return _GetAbw(); }
+			get { return _Value; }
 		}
 		
-		public static implicit operator decimal(Gravity g)
+		public new AlcoholStrengthType Type
 		{
-			return g._Value;
+			get { return AlcoholStrengthType.Abw; }
 		}
 		
-		public override string ToString ()
-		{
-			return string.Format("{0} {1}", _Value, _Type);
-		}
-
-
-		private decimal _GetAbv ()
-		{
-			throw new System.NotImplementedException ();
-		}
-		
-		private decimal _GetAbw ()
-		{
-			throw new System.NotImplementedException ();
-		}
-
 	}
 }
