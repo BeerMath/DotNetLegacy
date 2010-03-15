@@ -34,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HopsTest.cs" />
+    <Compile Include="AlcoholTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BeerMathLibrary\BeerMathLibrary.csproj">

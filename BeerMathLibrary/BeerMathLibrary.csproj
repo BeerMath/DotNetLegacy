@@ -51,6 +51,8 @@
     <Compile Include="BeerColor.cs" />
     <Compile Include="Hops.cs" />
     <Compile Include="Bitterness.cs" />
+    <Compile Include="Alcohol.cs" />
+    <Compile Include="Gravity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
