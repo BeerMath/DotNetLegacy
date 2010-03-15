@@ -120,5 +120,29 @@ namespace BeerMath.Sample.Console
 
 		    System.Console.WriteLine(String.Format("EBC = {0}", EBC));
 		}
+		
+		public static void IbuTest()
+		{
+			decimal alphaAcid = PromptDecimal("Alpha acid %");
+			decimal hopsOzs = PromptDecimal("Ounces of hops");
+			decimal boilMinutes = PromptDecimal("Minutes of boil time");
+			
+			decimal IBU = Hops.CalculateIbus(alphaAcid, hopsOzs, boilMinutes);
+			
+			System.Console.WriteLine(String.Format("IBUs = {0}", IBU));
+		}
+		
+		public static void TinsethTest()
+		{
+			decimal alphaAcid = PromptDecimal("Alpha acid %");
+			decimal hopsOzs = PromptDecimal("Ounces of hops");
+			decimal boilMinutes = PromptDecimal("Minutes of boil time");
+			decimal gravity = PromptDecimal("Gravity of wort");
+			decimal gallons = PromptDecimal("Gallons of wort");
+			
+			decimal IBU = Hops.CalculateIbusTinseth(alphaAcid, hopsOzs, boilMinutes, gravity, gallons);
+			
+			System.Console.WriteLine(String.Format("IBUs = {0}", IBU));
+		}
 	}
 }

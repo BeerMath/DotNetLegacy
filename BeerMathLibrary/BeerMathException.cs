@@ -79,5 +79,10 @@ namespace BeerMath
 	/// </summary>
     public class BeerMathException : ApplicationException
     {
+		public BeerMathException() : base() { }
+		public BeerMathException(string message) : base(message) { }
+		public BeerMathException(string message, Exception innerException) : base(message, innerException) { }
+		public BeerMathException(System.Runtime.Serialization.SerializationInfo info,
+		                         System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }
 }

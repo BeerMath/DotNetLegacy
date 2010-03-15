@@ -91,6 +91,8 @@ namespace BeerMath.Sample.Console
 			System.Console.WriteLine("1 - MCUs");
 			System.Console.WriteLine("2 - SRM");
 			System.Console.WriteLine("3 - EBC");
+			System.Console.WriteLine("4 - IBU");
+			System.Console.WriteLine("5 - Tinseth IBU");
 			System.Console.WriteLine("0 - EXIT");
 		}
 		public static void Gosub(int choice)
@@ -106,6 +108,12 @@ namespace BeerMath.Sample.Console
 			case 3 :
 				Calcs.EbcTest();
 				break;
+			case 4 :
+				Calcs.IbuTest();
+				break;
+			case 5 :
+				Calcs.TinsethTest();
+				break;
 			default:
 				break;
 			}
@@ -120,7 +128,7 @@ namespace BeerMath.Sample.Console
 		{
 			string entry = System.Console.ReadLine();
 			int answer = Int32.Parse(entry);
-			if (answer > 3)
+			if (answer > 5)
 			{
 				answer = 0;
 			}
