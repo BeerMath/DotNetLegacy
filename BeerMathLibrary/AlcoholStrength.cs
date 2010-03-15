@@ -80,8 +80,8 @@ namespace BeerMath
 	/// </summary>
 	public abstract class AlcoholStrength
 	{
-		public decimal Value;
-		public AlcoholStrengthType Type;
+		abstract public decimal Value { get; }
+		abstract public AlcoholStrengthType Type { get; }
 		/// <summary>
 		/// Convert an alcohol strength type to decimal
 		/// </summary>

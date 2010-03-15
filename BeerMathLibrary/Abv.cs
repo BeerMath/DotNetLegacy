@@ -88,12 +88,12 @@ namespace BeerMath
 			_Value = Value;
 		}
 		
-		public new decimal Value
+		public override decimal Value
 		{
 			get { return _Value; }
 		}
 		
-		public new AlcoholStrengthType Type
+		public override AlcoholStrengthType Type
 		{
 			get { return AlcoholStrengthType.Abv; }
 		}
