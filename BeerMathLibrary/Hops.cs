@@ -77,27 +77,93 @@ namespace BeerMath
 		
 		// Tinseth constants
 		// http://realbeer.com/hops/research.html
+		/// <summary>
+		/// Constants related to Glenn Tinseth's IBU methods
+		/// </summary>
+		#region Tinseth constants
 		public static decimal TinsethBignessCoefficient 			=  1.65m;
 		public static decimal TinsethBignessBase					=  0.000125m;
 		public static decimal TinsethBoiltimeShape				= -0.04m;
 		public static decimal TinsethBoiltimeMaximumUtilization	=  4.15m;
 		private static decimal TinsethNonmetricMagicNumber = 74.9m;
+		#endregion
+		private static decimal IbuMagicNumber = 7.25m;
 
-		public static decimal CalculateIbus (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes)
+		/// <summary>
+		/// Calculates IBU contribution using the standard method
+		/// </summary>
+		/// <param name="AlphaAcid">
+		/// A <see cref="System.Decimal"/> representing alpha acid like '7.9' (not '0.079')
+		/// </param>
+		/// <param name="HopsOzs">
+		/// A <see cref="System.Decimal"/> representing hop quantity in ounces
+		/// </param>
+		/// <param name="BoilMinutes">
+		/// A <see cref="System.Decimal"/> representing boil time in minutes
+		/// </param>
+		/// <returns>
+		/// A <see cref="Bitterness"/>
+		/// </returns>
+		public static Bitterness CalculateIbus (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes)
 		{
 			// ((Alpha Acids AA% x Quantity in oz's) x % Utilization) / 7.25
-			return (AlphaAcid * HopsOzs * _StandardUtilization(BoilMinutes)) / 7.25m;
+			return new Bitterness((AlphaAcid * HopsOzs * _StandardUtilization(BoilMinutes)) / IbuMagicNumber, BitternessType.Ibu);
 		}
 
-		public static decimal CalculateIbus (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes, decimal Gravity, decimal WortGallons)
+		/// <summary>
+		/// Calculates IBUs using the standard method, with a method signature equivalent to the Glenn Tinseth formula's
+		/// </summary>
+		/// <param name="AlphaAcid">
+		/// A <see cref="System.Decimal"/> representing alpha acid like '7.9' (not '0.079')
+		/// </param>
+		/// <param name="HopsOzs">
+		/// A <see cref="System.Decimal"/> representing hop quantity in ounces
+		/// </param>
+		/// <param name="BoilMinutes">
+		/// A <see cref="System.Decimal"/> representing boil time in minutes
+		/// </param>
+		/// <param name="Gravity">
+		/// A <see cref="System.Decimal"/> representing gravity of the wort (like '1.050')
+		/// </param>
+		/// <param name="WortGallons">
+		/// A <see cref="System.Decimal"/> representing wort quantity in gallons
+		/// </param>
+		/// <returns>
+		/// A <see cref="System.Decimal"/>
+		/// </returns>
+		public static Bitterness CalculateIbus (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes, decimal Gravity, decimal WortGallons)
 		{
 			return CalculateIbus (AlphaAcid, HopsOzs, BoilMinutes);
 		}
 		
-		public static decimal CalculateIbusTinseth (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes, decimal Gravity, decimal WortGallons)
+		/// <summary>
+		/// Calculates IBUs using the Glenn Tinseth method
+		/// </summary>
+		/// <param name="AlphaAcid">
+		/// A <see cref="System.Decimal"/> representing alpha acid like '7.9' (not '0.079')
+		/// </param>
+		/// <param name="HopsOzs">
+		/// A <see cref="System.Decimal"/> representing hop quantity in ounces
+		/// </param>
+		/// <param name="BoilMinutes">
+		/// A <see cref="System.Decimal"/> representing boil time in minutes
+		/// </param>
+		/// <param name="Gravity">
+		/// A <see cref="System.Decimal"/> representing gravity of the wort (like '1.050')
+		/// </param>
+		/// <param name="WortGallons">
+		/// A <see cref="System.Decimal"/> representing wort quantity in gallons
+		/// </param>
+		/// <returns>
+		/// A <see cref="System.Decimal"/>
+		/// </returns>
+		public static Bitterness CalculateIbusTinseth (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes, decimal Gravity, decimal WortGallons)
 		{
 			// IBUs = (Boil Time Factor * Bigness Factor) * (mg/l of added alpha acids)
-			return _BoilTimeFactor(BoilMinutes) * _BignessFactor(Gravity) * _MgAlphaAcids(AlphaAcid, HopsOzs, WortGallons);
+			return new Bitterness(_BoilTimeFactor(BoilMinutes) 
+			                        * _BignessFactor(Gravity) 
+			                        * _MgAlphaAcids(AlphaAcid, HopsOzs, WortGallons),
+			                      BitternessType.Ibu);
 		}
 
 		private static decimal _StandardUtilization (decimal BoilMinutes)
