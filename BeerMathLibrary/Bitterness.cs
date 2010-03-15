@@ -130,9 +130,9 @@ namespace BeerMath
 		/// A <see cref="Bitterness"/>
 		/// </param>
 		/// <returns>
-		/// A <see cref="Decimal"/>
+		/// A <see cref="System.Decimal"/>
 		/// </returns>
-		public static implicit operator Decimal(Bitterness b)
+		public static implicit operator decimal(Bitterness b)
 		{
 			return b._Value;
 		}
