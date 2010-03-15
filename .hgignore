@@ -10,3 +10,4 @@ syntax: glob
 */bin/Release/*
 */obj/Debug/*
 */obj/Release/*
+Tests/test-results/*

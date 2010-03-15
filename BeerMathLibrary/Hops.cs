@@ -81,7 +81,7 @@ namespace BeerMath
 		public static decimal TinsethBignessBase					=  0.000125m;
 		public static decimal TinsethBoiltimeShape				= -0.04m;
 		public static decimal TinsethBoiltimeMaximumUtilization	=  4.15m;
-		private static decimal TinsethNonmetricMagicNumber = 7490m;
+		private static decimal TinsethNonmetricMagicNumber = 74.9m;
 
 		public static decimal CalculateIbus (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes)
 		{
