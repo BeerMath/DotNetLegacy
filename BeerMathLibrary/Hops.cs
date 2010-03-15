@@ -129,7 +129,7 @@ namespace BeerMath
 		/// A <see cref="System.Decimal"/> representing wort quantity in gallons
 		/// </param>
 		/// <returns>
-		/// A <see cref="System.Decimal"/>
+		/// A <see cref="Bitterness"/>
 		/// </returns>
 		public static Bitterness CalculateIbus (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes, decimal Gravity, decimal WortGallons)
 		{
@@ -155,7 +155,7 @@ namespace BeerMath
 		/// A <see cref="System.Decimal"/> representing wort quantity in gallons
 		/// </param>
 		/// <returns>
-		/// A <see cref="System.Decimal"/>
+		/// A <see cref="Bitterness"/>
 		/// </returns>
 		public static Bitterness CalculateIbusTinseth (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes, decimal Gravity, decimal WortGallons)
 		{
