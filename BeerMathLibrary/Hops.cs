@@ -81,13 +81,13 @@ namespace BeerMath
 		/// Constants related to Glenn Tinseth's IBU methods
 		/// </summary>
 		#region Tinseth constants
-		public static decimal TinsethBignessCoefficient 			=  1.65m;
-		public static decimal TinsethBignessBase					=  0.000125m;
-		public static decimal TinsethBoiltimeShape				= -0.04m;
-		public static decimal TinsethBoiltimeMaximumUtilization	=  4.15m;
-		private static decimal TinsethNonmetricMagicNumber = 74.9m;
+		public const decimal TinsethBignessCoefficient 			=  1.65m;
+		public const decimal TinsethBignessBase					=  0.000125m;
+		public const decimal TinsethBoiltimeShape				= -0.04m;
+		public const decimal TinsethBoiltimeMaximumUtilization	=  4.15m;
+		private const decimal TinsethNonmetricMagicNumber = 74.9m;
 		#endregion
-		private static decimal IbuMagicNumber = 7.25m;
+		private const decimal IbuMagicNumber = 7.25m;
 
 		/// <summary>
 		/// Calculates IBU contribution using the standard method

@@ -76,7 +76,7 @@ namespace BeerMath
 	/// </summary>
 	public class Alcohol
 	{
-		private static decimal AbwMagicNumber = 0.79m;
+		private const decimal AbwMagicNumber = 0.79m;
 
 		/// <summary>
 		/// Calculates ABV (alcohol by volume) for a wort

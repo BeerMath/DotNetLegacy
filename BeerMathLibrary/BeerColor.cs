@@ -85,9 +85,9 @@ namespace BeerMath
 		private BeerColorType _BCT;
 		
 		// some constants we'll use to convert between the colors
-		private static double SrmFactor = 1.4922;
-		private static double SrmExponent = 0.6859;
-		private static decimal EcuFactor = 1.97m;
+		private const double SrmFactor = 1.4922;
+		private const double SrmExponent = 0.6859;
+		private const decimal EcuFactor = 1.97m;
 		
 		/// <summary>
 		/// Returns a beer color of 0 MCU
