@@ -72,7 +72,7 @@ namespace BeerMath
 {
 
 
-	public class Hops
+	public sealed class Hops
 	{
 		
 		// Tinseth constants

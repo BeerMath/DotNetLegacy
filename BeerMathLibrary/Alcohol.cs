@@ -74,7 +74,7 @@ namespace BeerMath
 	/// <summary>
 	/// Helper class for alcohol calculations
 	/// </summary>
-	public class Alcohol
+	public sealed class Alcohol
 	{
 		private const decimal AbwMagicNumber = 0.79m;
 

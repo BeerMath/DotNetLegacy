@@ -79,7 +79,7 @@ namespace BeerMath
 	/// <summary>
 	/// Represents the color of a wort or beer
 	/// </summary>
-	public class BeerColor
+	public sealed class BeerColor
 	{
 		private Decimal _Value;
 		private BeerColorType _BCT;

@@ -77,7 +77,7 @@ namespace BeerMath
 	/// <summary>
 	/// Exception thrown when some kind of error happens inside the BeerMath library 
 	/// </summary>
-    public class BeerMathException : ApplicationException
+    public sealed class BeerMathException : ApplicationException
     {
 		public BeerMathException() : base() { }
 		public BeerMathException(string message) : base(message) { }

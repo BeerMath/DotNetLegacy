@@ -82,7 +82,7 @@ namespace BeerMath
 	/// <summary>
 	/// Represents the bitterness of a wort or beer
 	/// </summary>
-	public class Bitterness
+	public sealed class Bitterness
 	{
 
 		private decimal _Value;

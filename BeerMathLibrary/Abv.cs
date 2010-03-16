@@ -74,7 +74,7 @@ namespace BeerMath
 	/// <summary>
 	/// Alcohol by volume
 	/// </summary>
-	public class Abv : AlcoholStrength
+	public sealed class Abv : AlcoholStrength
 	{
 		private decimal _Value;
 

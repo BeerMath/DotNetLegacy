@@ -76,7 +76,7 @@ namespace BeerMath
 	/// <summary>
 	/// Helper class for dealing with common malt calculations 
 	/// </summary>
-    public class Malt
+    public sealed class Malt
     {
 		/// <summary>
 		///  Caculates color in MCU (Malt Color Units) 
