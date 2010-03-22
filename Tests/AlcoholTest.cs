@@ -80,7 +80,7 @@ namespace Tests
 	{
 
 		[Test]
-		public void AbvTest ()
+		public void AbvCase ()
 		{
 			decimal OG = 1.056m;
 			decimal FG = 1.010m;
@@ -92,7 +92,7 @@ namespace Tests
 		}
 		
 		[Test]
-		public void AbwTest()
+		public void AbwCase ()
 		{
 			decimal OG = 1.056m;
 			decimal FG = 1.010m;

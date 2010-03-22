@@ -80,7 +80,7 @@ namespace Tests
 	{
 
 		[Test]
-		public void IbuTest ()
+		public void IbuCase ()
 		{
 			decimal alpha = 6.0m;
 			decimal ozs = 1.0m;
@@ -93,7 +93,7 @@ namespace Tests
 		}
 		
 		[Test]
-		public void IbuTinsethTest ()
+		public void IbuTinsethCase ()
 		{
 			decimal alpha = 6.0m;
 			decimal ozs = 1.0m;

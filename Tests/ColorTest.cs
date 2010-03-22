@@ -80,7 +80,7 @@ namespace Tests
 	{
 
 		[Test]
-		public void McuTest ()
+		public void McuCase ()
 		{
 			decimal grain = 10m;
 			decimal degrees = 20m;
@@ -93,7 +93,7 @@ namespace Tests
 		}
 
 		[Test]
-		public void SrmTest ()
+		public void SrmCase ()
 		{
 			decimal grain = 10m;
 			decimal degrees = 20m;
@@ -106,7 +106,7 @@ namespace Tests
 		}
 
 		[Test]
-		public void EbcTest ()
+		public void EbcCase ()
 		{
 			decimal grain = 10m;
 			decimal degrees = 20m;
