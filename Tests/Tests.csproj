@@ -10,7 +10,7 @@
     <RootNamespace>Tests</RootNamespace>
     <AssemblyName>Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.2</ReleaseVersion>
+    <ReleaseVersion>0.3</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,6 +37,8 @@
     <Compile Include="HopsTest.cs" />
     <Compile Include="AlcoholTest.cs" />
     <Compile Include="ColorTest.cs" />
+    <Compile Include="AttenuationTest.cs" />
+    <Compile Include="EvaporationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BeerMathLibrary\BeerMathLibrary.csproj">

@@ -12,7 +12,7 @@
     <AssemblyName>BeerMath</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ReleaseVersion>0.2</ReleaseVersion>
+    <ReleaseVersion>0.3</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,6 +56,8 @@
     <Compile Include="Abv.cs" />
     <Compile Include="Abw.cs" />
     <Compile Include="AlcoholStrength.cs" />
+    <Compile Include="Attenuation.cs" />
+    <Compile Include="Evaporation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
