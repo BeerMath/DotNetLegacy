@@ -6,6 +6,7 @@ syntax: glob
 *.resources
 *.suo
 *.mdb
+*.user
 */bin/Debug/*
 */bin/Release/*
 */obj/Debug/*

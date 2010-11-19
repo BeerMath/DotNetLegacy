@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerMathLibrary", "BeerMathLibrary\BeerMathLibrary.csproj", "{57990F4F-AAB8-479D-A4B7-3B26A78F9EF1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerMathSampleApp", "BeerMathSampleApp\BeerMathSampleApp.csproj", "{40496203-1331-448E-B7AF-03509DFAD07E}"
@@ -9,34 +9,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerMathSampleConsole", "Be
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{FB9A6210-AFA1-4CC2-A6F8-1A03EA2DDE76}"
 EndProject
-Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Packages", "Packages.mdproj", "{089AF026-077D-47D9-B617-BD739410CAB7}"
-EndProject
-Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Documentation", "Documentation\Documentation.mdproj", "{241CD81A-FDCE-4939-9B8C-49B8449492BF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
 		Default|Any CPU = Default|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{089AF026-077D-47D9-B617-BD739410CAB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{089AF026-077D-47D9-B617-BD739410CAB7}.Default|Any CPU.ActiveCfg = Default|Any CPU
-		{089AF026-077D-47D9-B617-BD739410CAB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{241CD81A-FDCE-4939-9B8C-49B8449492BF}.Debug|Any CPU.ActiveCfg = Default|Any CPU
-		{241CD81A-FDCE-4939-9B8C-49B8449492BF}.Debug|Any CPU.Build.0 = Default|Any CPU
-		{241CD81A-FDCE-4939-9B8C-49B8449492BF}.Default|Any CPU.ActiveCfg = Default|Any CPU
-		{241CD81A-FDCE-4939-9B8C-49B8449492BF}.Default|Any CPU.Build.0 = Default|Any CPU
-		{241CD81A-FDCE-4939-9B8C-49B8449492BF}.Release|Any CPU.ActiveCfg = Default|Any CPU
-		{241CD81A-FDCE-4939-9B8C-49B8449492BF}.Release|Any CPU.Build.0 = Default|Any CPU
-		{40496203-1331-448E-B7AF-03509DFAD07E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40496203-1331-448E-B7AF-03509DFAD07E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40496203-1331-448E-B7AF-03509DFAD07E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40496203-1331-448E-B7AF-03509DFAD07E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{57990F4F-AAB8-479D-A4B7-3B26A78F9EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{57990F4F-AAB8-479D-A4B7-3B26A78F9EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57990F4F-AAB8-479D-A4B7-3B26A78F9EF1}.Default|Any CPU.ActiveCfg = Debug|Any CPU
 		{57990F4F-AAB8-479D-A4B7-3B26A78F9EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57990F4F-AAB8-479D-A4B7-3B26A78F9EF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40496203-1331-448E-B7AF-03509DFAD07E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40496203-1331-448E-B7AF-03509DFAD07E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40496203-1331-448E-B7AF-03509DFAD07E}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{40496203-1331-448E-B7AF-03509DFAD07E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40496203-1331-448E-B7AF-03509DFAD07E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E12B4809-BBA5-4F5B-96C9-04CAEB8DD317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E12B4809-BBA5-4F5B-96C9-04CAEB8DD317}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E12B4809-BBA5-4F5B-96C9-04CAEB8DD317}.Default|Any CPU.ActiveCfg = Debug|Any CPU
@@ -49,6 +38,9 @@ Global
 		{FB9A6210-AFA1-4CC2-A6F8-1A03EA2DDE76}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{FB9A6210-AFA1-4CC2-A6F8-1A03EA2DDE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB9A6210-AFA1-4CC2-A6F8-1A03EA2DDE76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = BeerMathSampleConsole\BeerMathSampleConsole.csproj
@@ -67,8 +59,5 @@ Global
 		$5.LineAlign = 0
 		$4.inheritsSet = Mono
 		version = 0.3
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
