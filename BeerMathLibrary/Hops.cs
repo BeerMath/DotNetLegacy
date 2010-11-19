@@ -87,6 +87,20 @@ namespace BeerMath
 		public const decimal TinsethBoiltimeMaximumUtilization	=  4.15m;
 		private const decimal TinsethNonmetricMagicNumber = 74.9m;
 		#endregion
+
+		/// <summary>
+		/// Constants related to Jackie Rager's IBU methods.
+		/// http://www.realbeer.com/hops/FAQ.html#units
+		/// </summary>
+		#region Rager constants
+		public const decimal RagerGravityAdjustmentMinimum		= 1.050m;
+		public const decimal RagerGravityConstantDivisor		= 0.2m;
+		public const decimal RagerUtilizationBoilTimeAdjustment = 31.32m;
+		public const decimal RagerUtilizationBoilTimeDivisor	= 18.27m;
+		public const decimal RagerUtilizationBoilTimeMultiplier = 13.86m;
+		public const decimal RagerUtilizationBoilTimeAdditive	= 18.11m;
+		public const decimal RagerMetricConversionFactor		= 7462m;
+		#endregion
 		private const decimal IbuMagicNumber = 7.25m;
 
 		/// <summary>
@@ -229,6 +243,57 @@ namespace BeerMath
 		{
 			// Boil Time factor =1 - e^(-0.04 * time in min's) / ( 4.15)
 			return (decimal)((1 - Math.Pow(Math.E, (double)(TinsethBoiltimeShape * BoilMinutes))) / (double)TinsethBoiltimeMaximumUtilization);
+		}
+
+		/// <summary>
+		/// Calculates the IBU a sample of hops in the batch by the Rager method.
+		/// </summary>
+		/// <param name="AlphaAcidRating">
+		/// A <see cref="System.Decimal"/> representing alpha acid rating of the hops.
+		/// </param>
+		/// <param name="HopsOz">
+		/// A <see cref="System.Decimal"/> representing mass in ounces or grams of the hops.
+		/// </param>
+		/// <param name="Volume">
+		/// A <see cref="System.Decimal"/> representing final volume of the batch.
+		/// </param>
+		/// <param name="WortGravity">
+		/// A <see cref="System.Decimal"/> representing gravity of the wort.
+		/// </param>
+		/// <param name="BoilTimeMinutes">
+		/// A <see cref="System.Decimal"/> representing time the sample of hops is allowed to boil in the wort.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Bitterness"/>
+		/// </returns>
+		public static Bitterness CalculateIBURager(decimal AlphaAcidRating, decimal HopsOz, decimal Volume,
+			decimal WortGravity, decimal BoilTimeMinutes)
+		{
+			decimal GravityAdjustment = 0;
+			
+			// According to Rager, if the gravity of the wort exceeds 1.050, there needs to be a gravity adjustment in the equation.
+			if (WortGravity > RagerGravityAdjustmentMinimum)
+			{
+				GravityAdjustment = (WortGravity - RagerGravityAdjustmentMinimum) / RagerGravityConstantDivisor;
+			}
+
+			// Alpha acid utilization.
+			decimal Utilization = RagerUtilizationBoilTimeAdditive + 
+				(RagerUtilizationBoilTimeMultiplier * 
+					(decimal)Math.Tanh((double)((BoilTimeMinutes - RagerUtilizationBoilTimeAdjustment) / RagerUtilizationBoilTimeDivisor)));
+
+			// Convert utilization and alpha acid to percentage
+			Utilization = Utilization / 100m;
+			AlphaAcidRating = AlphaAcidRating / 100m;
+
+			return new Bitterness(
+						(HopsOz 
+							* Utilization 
+							* AlphaAcidRating 
+							* RagerMetricConversionFactor) 
+						/ (Volume 
+							* (1 + GravityAdjustment)),
+				BitternessType.Ibu);
 		}
 
 	}

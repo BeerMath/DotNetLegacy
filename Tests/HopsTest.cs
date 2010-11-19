@@ -106,5 +106,19 @@ namespace Tests
 			Assert.That(result, Is.AtMost(20.74m));
 		}
 			
+		[Test]
+		public void IbuRagerCase()
+		{
+			decimal alpha = 6.0m;
+			decimal ozs = 1.0m;
+			decimal minutes = 60m;
+			decimal gravity = 1.05m;
+			decimal gallons = 5m;
+
+			decimal result = Hops.CalculateIBURager(alpha, ozs, gallons, gravity, minutes);
+
+			Assert.That(result, Is.AtLeast(27.59m));
+			Assert.That(result, Is.AtMost(27.60m));
+		}
 	}
 }
