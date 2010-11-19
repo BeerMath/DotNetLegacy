@@ -274,13 +274,11 @@ namespace BeerMath
 			// According to Rager, if the gravity of the wort exceeds 1.050, there needs to be a gravity adjustment in the equation.
 			if (WortGravity > RagerGravityAdjustmentMinimum)
 			{
-				GravityAdjustment = (WortGravity - RagerGravityAdjustmentMinimum) / RagerGravityConstantDivisor;
+				GravityAdjustment = _RagerGravityAdjustment(WortGravity, GravityAdjustment);
 			}
 
 			// Alpha acid utilization.
-			decimal Utilization = RagerUtilizationBoilTimeAdditive + 
-				(RagerUtilizationBoilTimeMultiplier * 
-					(decimal)Math.Tanh((double)((BoilTimeMinutes - RagerUtilizationBoilTimeAdjustment) / RagerUtilizationBoilTimeDivisor)));
+			decimal Utilization = _RagerUtilization(BoilTimeMinutes);
 
 			// Convert utilization and alpha acid to percentage
 			Utilization = Utilization / 100m;
@@ -296,5 +294,18 @@ namespace BeerMath
 				BitternessType.Ibu);
 		}
 
+		private static decimal _RagerGravityAdjustment(decimal WortGravity, decimal GravityAdjustment)
+		{
+			GravityAdjustment = (WortGravity - RagerGravityAdjustmentMinimum) / RagerGravityConstantDivisor;
+			return GravityAdjustment;
+		}
+
+		private static decimal _RagerUtilization(decimal BoilTimeMinutes)
+		{
+			decimal Utilization = RagerUtilizationBoilTimeAdditive +
+						 (RagerUtilizationBoilTimeMultiplier *
+							 (decimal)Math.Tanh((double)((BoilTimeMinutes - RagerUtilizationBoilTimeAdjustment) / RagerUtilizationBoilTimeDivisor)));
+			return Utilization;
+		}
 	}
 }
