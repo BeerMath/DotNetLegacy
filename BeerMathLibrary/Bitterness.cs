@@ -76,7 +76,8 @@ namespace BeerMath
 	/// </summary>
 	public enum BitternessType
 	{
-		Ibu
+		Ibu,
+		Hbu
 	}
 
 	/// <summary>
@@ -115,11 +116,22 @@ namespace BeerMath
 		/// <summary>
 		/// Gets the bitterness value in IBUs (International Bitterness Units)
 		/// </summary>
-		public decimal Ibu
+		public decimal Value
 		{
 			get
 			{
 				return _Value;
+			}
+		}
+
+		/// <summary>
+		/// Gets the bitterness type.
+		/// </summary>
+		public BitternessType Type
+		{
+			get
+			{
+				return _Type;
 			}
 		}
 		

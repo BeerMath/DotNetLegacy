@@ -86,10 +86,12 @@ namespace Tests
 			decimal ozs = 1.0m;
 			decimal minutes = 60m;
 			
-			decimal result = Hops.CalculateIbus(alpha, ozs, minutes);
-			
-			Assert.That(result, Is.AtLeast(24.82m));
-			Assert.That(result, Is.AtMost(24.83m));
+			Bitterness result = Hops.CalculateIbus(alpha, ozs, minutes);
+
+			Assert.IsAssignableFrom(typeof(BitternessType), result.Type);
+			Assert.That(result.Type, Is.EqualTo(BitternessType.Ibu));
+			Assert.That(result.Value, Is.AtLeast(24.82m));
+			Assert.That(result.Value, Is.AtMost(24.83m));
 		}
 		
 		[Test]
@@ -100,11 +102,13 @@ namespace Tests
 			decimal minutes = 60m;
 			decimal gravity = 1.05m;
 			decimal gallons = 5m;
-			
-			decimal result = Hops.CalculateIbusTinseth(alpha, ozs, minutes, gravity, gallons);
-			
-			Assert.That(result, Is.AtLeast(20.73m));
-			Assert.That(result, Is.AtMost(20.74m));
+
+			Bitterness result = Hops.CalculateIbusTinseth(alpha, ozs, minutes, gravity, gallons);
+
+			Assert.IsAssignableFrom(typeof(BitternessType), result.Type);
+			Assert.That(result.Type, Is.EqualTo(BitternessType.Ibu));
+			Assert.That(result.Value, Is.AtLeast(20.73m));
+			Assert.That(result.Value, Is.AtMost(20.74m));
 		}
 			
 		[Test]
@@ -116,10 +120,12 @@ namespace Tests
 			decimal gravity = 1.05m;
 			decimal gallons = 5m;
 
-			decimal result = Hops.CalculateIBURager(alpha, ozs, gallons, gravity, minutes);
+			Bitterness result = Hops.CalculateIBURager(alpha, ozs, gallons, gravity, minutes);
 
-			Assert.That(result, Is.AtLeast(27.59m));
-			Assert.That(result, Is.AtMost(27.60m));
+			Assert.IsAssignableFrom(typeof(BitternessType), result.Type);
+			Assert.That(result.Type, Is.EqualTo(BitternessType.Ibu));
+			Assert.That(result.Value, Is.AtLeast(27.59m));
+			Assert.That(result.Value, Is.AtMost(27.60m));
 		}
 
 		[Test]
@@ -134,10 +140,12 @@ namespace Tests
 			decimal desiredIBU = 20m;
 			decimal elevation = 550m;
 
-			decimal result = Hops.CalculateIBUGaretz(alpha, ozs, finalVolume, boilVolume, gravity, minutes, desiredIBU, elevation);
-			
-			Assert.That(result, Is.AtMost(15.9m));
-			Assert.That(result, Is.AtLeast(15.8m));
+			Bitterness result = Hops.CalculateIBUGaretz(alpha, ozs, finalVolume, boilVolume, gravity, minutes, desiredIBU, elevation);
+
+			Assert.IsAssignableFrom(typeof(BitternessType), result.Type);
+			Assert.That(result.Type, Is.EqualTo(BitternessType.Ibu));
+			Assert.That(result.Value, Is.AtMost(15.9m));
+			Assert.That(result.Value, Is.AtLeast(15.8m));
 		}
 
 		[Test]
@@ -147,6 +155,18 @@ namespace Tests
 
 			Assert.That(result, Is.AtMost(2.09m));
 			Assert.That(result, Is.AtLeast(2.07m));
+		}
+
+		[Test]
+		public void HbuTest()
+		{
+			decimal alpha = 6.0m;
+			decimal hopsOz = 1.0m;
+			Bitterness result = Hops.CalculateHBU(alpha, hopsOz);
+
+			Assert.IsAssignableFrom(typeof(BitternessType), result.Type);
+			Assert.That(result.Type, Is.EqualTo(BitternessType.Hbu));
+			Assert.That(result.Value, Is.EqualTo(6.0m));
 		}
 	}
 }
