@@ -61,6 +61,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GravityTest.cs" />
     <Compile Include="HopsTest.cs" />
     <Compile Include="AlcoholTest.cs" />
     <Compile Include="ColorTest.cs" />

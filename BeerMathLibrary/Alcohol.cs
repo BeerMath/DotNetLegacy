@@ -78,38 +78,46 @@ namespace BeerMath
 	{
 		private const decimal AbwMagicNumber = 0.79m;
 
+		#region Calorie Calculation constants
+		public const decimal CalorieCalculationAbwMultiplier			= 6.9m;
+		public const decimal CalorieCalculationAbwRealExtractSum		= 4.0m;
+		public const decimal CalorieCalculationRealExtractSubtraction	= 0.1m;
+		public const decimal CalorieCalculationFinalGravityMultiplier	= 3.55m;
+		#endregion
+
+
 		/// <summary>
 		/// Calculates ABV (alcohol by volume) for a wort
 		/// </summary>
 		/// <param name="OriginalGravity">
-		/// A <see cref="System.Decimal"/>
+		/// A <see cref="Gravity"/>
 		/// </param>
 		/// <param name="FinalGravity">
-		/// A <see cref="System.Decimal"/>
+		/// A <see cref="Gravity"/>
 		/// </param>
 		/// <returns>
 		/// A <see cref="Abv"/>
 		/// </returns>
-		public static Abv CalculateAbv (decimal OriginalGravity, decimal FinalGravity)
+		public static Abv CalculateAbv(Gravity OriginalGravity, Gravity FinalGravity)
 		{
-			return new Abv((OriginalGravity - FinalGravity) * _AbvFactor(OriginalGravity - FinalGravity));
+			return new Abv((OriginalGravity.Value - FinalGravity.Value) * _AbvFactor(OriginalGravity.Value - FinalGravity.Value));
 		}
 		
 		/// <summary>
 		/// Calculates ABW (alcohol by weight) for a wort
 		/// </summary>
 		/// <param name="OriginalGravity">
-		/// A <see cref="System.Decimal"/>
+		/// A <see cref="Gravity"/>
 		/// </param>
 		/// <param name="FinalGravity">
-		/// A <see cref="System.Decimal"/>
+		/// A <see cref="Gravity"/>
 		/// </param>
 		/// <returns>
 		/// A <see cref="Abw"/>
 		/// </returns>
-		public static Abw CalculateAbw (decimal OriginalGravity, decimal FinalGravity)
+		public static Abw CalculateAbw (Gravity OriginalGravity, Gravity FinalGravity)
 		{
-			return new Abw((AbwMagicNumber * CalculateAbv(OriginalGravity, FinalGravity)) / FinalGravity);
+			return new Abw((AbwMagicNumber * CalculateAbv(OriginalGravity, FinalGravity)) / FinalGravity.Value);
 		}
 		
 		private static decimal _AbvFactor(decimal GravityDifference)
@@ -157,6 +165,27 @@ namespace BeerMath
 				return 135m;
 			
 			throw new BeerMathException("Gravity differences greater than 0.1007 are not supported in this version");
+		}
+
+		/// <summary>
+		/// Calculates the estimated caloric content of the batch based on its Gravity.
+		/// </summary>
+		/// <param name="OriginalGravity">
+		/// The original <see cref="Gravity"/> contribution of the grain.
+		/// </param>
+		/// <param name="FinalGravity">
+		/// The final <see cref="Gravity"/> contribution of the grain.
+		/// </param>
+		/// <returns>
+		/// A <see cref="System.Decimal"/> representing the batch's caloric content.
+		/// </returns>
+		public static decimal CalculateCalories(Gravity OriginalGravity, Gravity FinalGravity)
+		{
+			Abw abw = CalculateAbw(OriginalGravity, FinalGravity);
+			Gravity realExtract = Malt.CalculateRealExtract(OriginalGravity, FinalGravity);
+			return ((CalorieCalculationAbwMultiplier * abw) 
+						+ (CalorieCalculationAbwRealExtractSum * (realExtract.Plato - CalorieCalculationRealExtractSubtraction))) 
+					* FinalGravity.Value * CalorieCalculationFinalGravityMultiplier;
 		}
 	}
 }

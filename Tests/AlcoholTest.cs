@@ -81,11 +81,11 @@ namespace Tests
 		[Test]
 		public void AbvCase ()
 		{
-			decimal OG = 1.056m;
-			decimal FG = 1.010m;
+			Gravity OG = new Gravity(56m);
+			Gravity FG = new Gravity(10m);
 			
 			decimal result = Alcohol.CalculateAbv(OG, FG);
-			
+
 			Assert.That(result, Is.AtLeast(5.98m));
 			Assert.That(result, Is.AtMost(5.99m));
 		}
@@ -93,13 +93,25 @@ namespace Tests
 		[Test]
 		public void AbwCase ()
 		{
-			decimal OG = 1.056m;
-			decimal FG = 1.010m;
+			Gravity OG = new Gravity(56m);
+			Gravity FG = new Gravity(10m);
 			
 			decimal result = Alcohol.CalculateAbw(OG, FG);
 			
 			Assert.That(result, Is.AtLeast(4.67m));
 			Assert.That(result, Is.AtMost(4.68m));
+		}
+
+		[Test]
+		public void CalorieTest()
+		{
+			Gravity originalGravity = new Gravity(70m);
+			Gravity finalGravity = new Gravity(15m);
+
+			decimal result = Alcohol.CalculateCalories(originalGravity, finalGravity);
+
+			Assert.That(result, Is.AtMost(228m));
+			Assert.That(result, Is.AtLeast(227.5m));
 		}
 	}
 }
