@@ -69,6 +69,7 @@
 using System;
 using NUnit.Framework;
 using BeerMath;
+using System.Diagnostics;
 
 namespace Tests
 {
@@ -137,6 +138,15 @@ namespace Tests
 			
 			Assert.That(result, Is.AtMost(15.9m));
 			Assert.That(result, Is.AtLeast(15.8m));
+		}
+
+		[Test]
+		public void BeerBalanceTest()
+		{
+			decimal result = Hops.CalculateBalanceRatio(10m, 40m, new Bitterness(40m, BitternessType.Ibu));
+
+			Assert.That(result, Is.AtMost(2.09m));
+			Assert.That(result, Is.AtLeast(2.07m));
 		}
 	}
 }

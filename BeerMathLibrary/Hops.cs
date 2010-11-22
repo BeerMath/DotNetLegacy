@@ -114,6 +114,17 @@ namespace BeerMath
 		public const decimal GaretzElevationMultiplier			= 0.02m;
 		public const decimal GaretzMetricConversionFactor		= 0.749m;
 		#endregion
+
+		/// <summary>
+		/// Constants related to the calculation of the balance ratio.
+		/// http://beercolor.netfirms.com/balance.html
+		/// </summary>
+		#region Beer balance constants
+		public const decimal BalanceFinalGravityRatio			= 0.82m;
+		public const decimal BalanceOriginalGravityRatio		= 0.18m;
+		public const decimal BalanceIBURatio					= 0.8m;
+		#endregion
+
 		private const decimal IbuMagicNumber = 7.25m;
 
 		/// <summary>
@@ -421,6 +432,34 @@ namespace BeerMath
 				return 23;
 
 			throw new BeerMathException("Boil times greater than 90 minutes are not supported in this version");
+		}
+
+		/// <summary>
+		/// Calculates the balance (BU:GU) or bittering units to gravity units of the batch.
+		/// </summary>
+		/// <param name="FinalGravity">
+		/// A <see cref="System.Decimal"/> representing the final gravity of the batch. 
+		/// This should be a value in whole numbers, like 40 instead of 1.040.
+		/// </param>
+		/// <param name="OriginalGravity">
+		/// A <see cref="System.Decimal"/> representing the original gravity of the batch.
+		/// This should be a value in whole numbers, like 40 instead of 1.040.
+		/// </param>
+		/// <param name="Ibu">
+		/// A <see cref="Bitterness"/> representing the IBU of the batch.
+		/// </param>
+		/// <returns>
+		/// A <see cref="System.Decimal"/> BU:GU ratio value.
+		/// </returns>
+		public static decimal CalculateBalanceRatio(decimal FinalGravity, decimal OriginalGravity, Bitterness Ibu)
+		{
+			if (FinalGravity == 0m && OriginalGravity == 0m)
+			{
+				throw new BeerMathException("finalGravity and originalGravity must not be 0.");
+			}
+			decimal realTerminalExtract = (BalanceFinalGravityRatio * FinalGravity) + (BalanceOriginalGravityRatio * OriginalGravity);
+
+			return (Ibu * BalanceIBURatio) / realTerminalExtract;
 		}
 	}
 }
