@@ -120,5 +120,23 @@ namespace Tests
 			Assert.That(result, Is.AtLeast(27.59m));
 			Assert.That(result, Is.AtMost(27.60m));
 		}
+
+		[Test]
+		public void IbuGaretzCase()
+		{
+			decimal alpha = 5.5m;
+			decimal ozs = 1.0m;
+			decimal minutes = 60m;
+			decimal gravity = 1.05m;
+			decimal finalVolume = 5m;
+			decimal boilVolume = 6.0m;
+			decimal desiredIBU = 20m;
+			decimal elevation = 550m;
+
+			decimal result = Hops.CalculateIBUGaretz(alpha, ozs, finalVolume, boilVolume, gravity, minutes, desiredIBU, elevation);
+			
+			Assert.That(result, Is.AtMost(15.9m));
+			Assert.That(result, Is.AtLeast(15.8m));
+		}
 	}
 }
