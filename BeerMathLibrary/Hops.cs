@@ -161,7 +161,7 @@ namespace BeerMath
 		/// A <see cref="System.Decimal"/> representing boil time in minutes
 		/// </param>
 		/// <param name="Gravity">
-		/// A <see cref="System.Decimal"/> representing gravity of the wort (like '1.050')
+		/// A <see cref="Gravity"/> representing gravity of the wort (like '1.050')
 		/// </param>
 		/// <param name="WortGallons">
 		/// A <see cref="System.Decimal"/> representing wort quantity in gallons
@@ -169,7 +169,7 @@ namespace BeerMath
 		/// <returns>
 		/// A <see cref="Bitterness"/>
 		/// </returns>
-		public static Bitterness CalculateIbus (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes, decimal Gravity, decimal WortGallons)
+		public static Bitterness CalculateIbus (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes, Gravity Gravity, decimal WortGallons)
 		{
 			return CalculateIbus (AlphaAcid, HopsOzs, BoilMinutes);
 		}
@@ -187,7 +187,7 @@ namespace BeerMath
 		/// A <see cref="System.Decimal"/> representing boil time in minutes
 		/// </param>
 		/// <param name="Gravity">
-		/// A <see cref="System.Decimal"/> representing gravity of the wort (like '1.050')
+		/// A <see cref="Gravity"/> representing gravity of the wort (like '1.050')
 		/// </param>
 		/// <param name="WortGallons">
 		/// A <see cref="System.Decimal"/> representing wort quantity in gallons
@@ -195,7 +195,7 @@ namespace BeerMath
 		/// <returns>
 		/// A <see cref="Bitterness"/>
 		/// </returns>
-		public static Bitterness CalculateIbusTinseth (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes, decimal Gravity, decimal WortGallons)
+		public static Bitterness CalculateIbusTinseth (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes, Gravity Gravity, decimal WortGallons)
 		{
 			// IBUs = (Boil Time Factor * Bigness Factor) * (mg/l of added alpha acids)
 			return new Bitterness(_BoilTimeFactor(BoilMinutes) 
@@ -256,10 +256,10 @@ namespace BeerMath
 		}
 
 
-		private static decimal _BignessFactor (decimal Gravity)
+		private static decimal _BignessFactor (Gravity Gravity)
 		{
 			// Bigness factor = 1.65 * 0.000125^(wort gravity - 1)
-			return (decimal)((double)TinsethBignessCoefficient * Math.Pow((double)TinsethBignessBase, (double)(Gravity - 1)));
+			return (decimal)((double)TinsethBignessCoefficient * Math.Pow((double)TinsethBignessBase, (double)(Gravity.Value - 1)));
 		}
 
 
@@ -282,7 +282,7 @@ namespace BeerMath
 		/// A <see cref="System.Decimal"/> representing final volume of the batch.
 		/// </param>
 		/// <param name="WortGravity">
-		/// A <see cref="System.Decimal"/> representing gravity of the wort.
+		/// A <see cref="Gravity"/> representing gravity of the wort.
 		/// </param>
 		/// <param name="BoilTimeMinutes">
 		/// A <see cref="System.Decimal"/> representing time the sample of hops is allowed to boil in the wort.
@@ -291,12 +291,12 @@ namespace BeerMath
 		/// A <see cref="Bitterness"/>
 		/// </returns>
 		public static Bitterness CalculateIbusRager(decimal AlphaAcidRating, decimal HopsOz, decimal Volume,
-			decimal WortGravity, decimal BoilTimeMinutes)
+			Gravity WortGravity, decimal BoilTimeMinutes)
 		{
 			decimal GravityAdjustment = 0;
 			
 			// According to Rager, if the gravity of the wort exceeds 1.050, there needs to be a gravity adjustment in the equation.
-			if (WortGravity > RagerGravityAdjustmentMinimum)
+			if (WortGravity.Value > RagerGravityAdjustmentMinimum)
 			{
 				GravityAdjustment = _RagerGravityAdjustment(WortGravity, GravityAdjustment);
 			}
@@ -318,9 +318,9 @@ namespace BeerMath
 				BitternessType.Ibu);
 		}
 
-		private static decimal _RagerGravityAdjustment(decimal WortGravity, decimal GravityAdjustment)
+		private static decimal _RagerGravityAdjustment(Gravity WortGravity, decimal GravityAdjustment)
 		{
-			GravityAdjustment = (WortGravity - RagerGravityAdjustmentMinimum) / RagerGravityConstantDivisor;
+			GravityAdjustment = (WortGravity.Value - RagerGravityAdjustmentMinimum) / RagerGravityConstantDivisor;
 			return GravityAdjustment;
 		}
 
@@ -350,7 +350,7 @@ namespace BeerMath
 		/// A <see cref="System.Decimal"/> representing the boil volume of the batch.
 		/// </param>
 		/// <param name="WortGravity">
-		/// A <see cref="System.Decimal"/> representing the gravity of the wort.
+		/// A <see cref="Gravity"/> representing the gravity of the wort.
 		/// </param>
 		/// <param name="BoilTimeMinutes">
 		/// A <see cref="System.Decimal"/> representing the time the sample of hops is allowed to boil in the wort.
@@ -365,7 +365,7 @@ namespace BeerMath
 		/// A <see cref="Bitterness"/>
 		/// </returns>
 		public static Bitterness CalculateIbusGaretz(decimal AlphaAcidRating, decimal HopsOz, decimal FinalVolume,
-			decimal BoilVolume, decimal WortGravity, decimal BoilTimeMinutes, decimal DesiredIBU, decimal ElevationFeet)
+			decimal BoilVolume, Gravity WortGravity, decimal BoilTimeMinutes, decimal DesiredIBU, decimal ElevationFeet)
 		{
 			if (BoilVolume == 0)
 			{
@@ -380,7 +380,7 @@ namespace BeerMath
 			// Concentration factor of the batch.
 			decimal ConcentrationFactor = FinalVolume / BoilVolume;
 
-			decimal BoilGravity = (ConcentrationFactor * (WortGravity - 1)) + 1;
+			decimal BoilGravity = (ConcentrationFactor * (WortGravity.Value - 1)) + 1;
 			decimal GravityFactor = ((BoilGravity - GaretzGravityAdjustment) / GaretzGravityFactorDivisor) + 1;
 			decimal HoppingRateFactor = ((ConcentrationFactor * DesiredIBU) / GaretzHoppingRateDivisor) + 1;
 			decimal TemperatureFactor = ((ElevationFeet / GaretzElevationDivisor) * GaretzElevationMultiplier) + 1;
@@ -438,11 +438,11 @@ namespace BeerMath
 		/// Calculates the balance (BU:GU) or bittering units to gravity units of the batch.
 		/// </summary>
 		/// <param name="FinalGravity">
-		/// A <see cref="System.Decimal"/> representing the final gravity of the batch. 
+		/// A <see cref="Gravity"/> representing the final gravity of the batch. 
 		/// This should be a value in whole numbers, like 40 instead of 1.040.
 		/// </param>
 		/// <param name="OriginalGravity">
-		/// A <see cref="System.Decimal"/> representing the original gravity of the batch.
+		/// A <see cref="Gravity"/> representing the original gravity of the batch.
 		/// This should be a value in whole numbers, like 40 instead of 1.040.
 		/// </param>
 		/// <param name="Ibu">
@@ -451,13 +451,13 @@ namespace BeerMath
 		/// <returns>
 		/// A <see cref="System.Decimal"/> BU:GU ratio value.
 		/// </returns>
-		public static decimal CalculateBalanceRatio(decimal FinalGravity, decimal OriginalGravity, Bitterness Ibu)
+		public static decimal CalculateBalanceRatio(Gravity FinalGravity, Gravity OriginalGravity, Bitterness Ibu)
 		{
-			if (FinalGravity == 0m && OriginalGravity == 0m)
+			if (FinalGravity == Gravity.Zero && OriginalGravity == Gravity.Zero)
 			{
 				throw new BeerMathException("finalGravity and originalGravity must not be 0.");
 			}
-			decimal realTerminalExtract = (BalanceFinalGravityRatio * FinalGravity) + (BalanceOriginalGravityRatio * OriginalGravity);
+			decimal realTerminalExtract = (BalanceFinalGravityRatio * FinalGravity.Points) + (BalanceOriginalGravityRatio * OriginalGravity.Points);
 
 			return (Ibu * BalanceIBURatio) / realTerminalExtract;
 		}

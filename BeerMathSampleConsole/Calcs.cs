@@ -137,7 +137,7 @@ namespace BeerMath.Sample.Console
 			decimal alphaAcid = PromptDecimal("Alpha acid %");
 			decimal hopsOzs = PromptDecimal("Ounces of hops");
 			decimal boilMinutes = PromptDecimal("Minutes of boil time");
-			decimal gravity = PromptDecimal("Gravity of wort");
+			Gravity gravity = new Gravity(PromptDecimal("Gravity points of wort"));
 			decimal gallons = PromptDecimal("Gallons of wort");
 			
 			decimal IBU = Hops.CalculateIbusTinseth(alphaAcid, hopsOzs, boilMinutes, gravity, gallons);

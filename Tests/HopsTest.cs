@@ -100,7 +100,7 @@ namespace Tests
 			decimal alpha = 6.0m;
 			decimal ozs = 1.0m;
 			decimal minutes = 60m;
-			decimal gravity = 1.05m;
+			Gravity gravity = new Gravity(50m);
 			decimal gallons = 5m;
 
 			Bitterness result = Hops.CalculateIbusTinseth(alpha, ozs, minutes, gravity, gallons);
@@ -117,7 +117,7 @@ namespace Tests
 			decimal alpha = 6.0m;
 			decimal ozs = 1.0m;
 			decimal minutes = 60m;
-			decimal gravity = 1.05m;
+			Gravity gravity = new Gravity(50m);
 			decimal gallons = 5m;
 
 			Bitterness result = Hops.CalculateIbusRager(alpha, ozs, gallons, gravity, minutes);
@@ -134,7 +134,7 @@ namespace Tests
 			decimal alpha = 5.5m;
 			decimal ozs = 1.0m;
 			decimal minutes = 60m;
-			decimal gravity = 1.05m;
+			Gravity gravity = new Gravity(50m);
 			decimal finalVolume = 5m;
 			decimal boilVolume = 6.0m;
 			decimal desiredIBU = 20m;
@@ -151,7 +151,7 @@ namespace Tests
 		[Test]
 		public void BeerBalanceTest()
 		{
-			decimal result = Hops.CalculateBalanceRatio(10m, 40m, new Bitterness(40m, BitternessType.Ibu));
+			decimal result = Hops.CalculateBalanceRatio(new Gravity(10m), new Gravity(40m), new Bitterness(40m, BitternessType.Ibu));
 
 			Assert.That(result, Is.AtMost(2.09m));
 			Assert.That(result, Is.AtLeast(2.07m));

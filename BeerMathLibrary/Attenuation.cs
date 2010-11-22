@@ -81,18 +81,18 @@ namespace BeerMath
 		/// attenuation.
 		/// </summary>
 		/// <param name="OriginalGravity">
-		/// A <see cref="System.Decimal"/>
+		/// A <see cref="Gravity"/>
 		/// </param>
 		/// <param name="FinalGravity">
-		/// A <see cref="System.Decimal"/>
+		/// A <see cref="Gravity"/>
 		/// </param>
 		/// <returns>
 		/// A <see cref="System.Decimal"/>
 		/// </returns>
-		public static decimal CalculateApparent (decimal OriginalGravity, decimal FinalGravity)
+		public static decimal CalculateApparent(Gravity OriginalGravity, Gravity FinalGravity)
 		{
 			//Apparent Attenuation % = ((OG-1)-(FG-1)) / (OG-1) x 100
-			return ((OriginalGravity-1)-(FinalGravity-1)) / (OriginalGravity-1)*100;
+			return ((OriginalGravity.Value-1)-(FinalGravity.Value-1)) / (OriginalGravity.Value-1)*100;
 		}
 
 		/// <summary>
@@ -101,15 +101,15 @@ namespace BeerMath
 		/// fermented.  The real attenuation will always be a lower number than the apparent attenuation.
 		/// </summary>
 		/// <param name="OriginalGravity">
-		/// A <see cref="System.Decimal"/>
+		/// A <see cref="Gravity"/>
 		/// </param>
 		/// <param name="FinalGravity">
-		/// A <see cref="System.Decimal"/>
+		/// A <see cref="Gravity"/>
 		/// </param>
 		/// <returns>
 		/// A <see cref="System.Decimal"/>
 		/// </returns>
-		public static decimal CalculateReal (decimal OriginalGravity, decimal FinalGravity)
+		public static decimal CalculateReal(Gravity OriginalGravity, Gravity FinalGravity)
 		{
 			//Real Attenuation = Apparent Attenuation * 0.81
 			return CalculateApparent(OriginalGravity, FinalGravity) * RealFactorMagicNumber;

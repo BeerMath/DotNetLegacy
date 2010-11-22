@@ -81,8 +81,8 @@ namespace Tests
 		[Test]
 		public void ApparentCase ()
 		{
-			decimal OG = 1.056m;
-			decimal FG = 1.010m;
+			Gravity OG = new Gravity(56m);
+			Gravity FG = new Gravity(10m);
 			
 			decimal result = Attenuation.CalculateApparent(OG, FG);
 			
@@ -93,8 +93,8 @@ namespace Tests
 		[Test]
 		public void RealCase ()
 		{
-			decimal OG = 1.056m;
-			decimal FG = 1.010m;
+			Gravity OG = new Gravity(56m);
+			Gravity FG = new Gravity(10m);
 			
 			decimal result = Attenuation.CalculateReal(OG, FG);
 			
