@@ -290,7 +290,7 @@ namespace BeerMath
 		/// <returns>
 		/// A <see cref="Bitterness"/>
 		/// </returns>
-		public static Bitterness CalculateIBURager(decimal AlphaAcidRating, decimal HopsOz, decimal Volume,
+		public static Bitterness CalculateIbusRager(decimal AlphaAcidRating, decimal HopsOz, decimal Volume,
 			decimal WortGravity, decimal BoilTimeMinutes)
 		{
 			decimal GravityAdjustment = 0;
@@ -364,7 +364,7 @@ namespace BeerMath
 		/// <returns>
 		/// A <see cref="Bitterness"/>
 		/// </returns>
-		public static Bitterness CalculateIBUGaretz(decimal AlphaAcidRating, decimal HopsOz, decimal FinalVolume,
+		public static Bitterness CalculateIbusGaretz(decimal AlphaAcidRating, decimal HopsOz, decimal FinalVolume,
 			decimal BoilVolume, decimal WortGravity, decimal BoilTimeMinutes, decimal DesiredIBU, decimal ElevationFeet)
 		{
 			if (BoilVolume == 0)
@@ -474,7 +474,7 @@ namespace BeerMath
 		/// <returns>
 		/// A <see cref="Bitterness"/> representing the HBU of the hops.
 		/// </returns>
-		public static Bitterness CalculateHBU(decimal AlphaAcidRating, decimal HopsOz)
+		public static Bitterness CalculateHbus(decimal AlphaAcidRating, decimal HopsOz)
 		{
 			return new Bitterness(AlphaAcidRating * HopsOz, BitternessType.Hbu);
 		}

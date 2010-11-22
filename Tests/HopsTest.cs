@@ -120,7 +120,7 @@ namespace Tests
 			decimal gravity = 1.05m;
 			decimal gallons = 5m;
 
-			Bitterness result = Hops.CalculateIBURager(alpha, ozs, gallons, gravity, minutes);
+			Bitterness result = Hops.CalculateIbusRager(alpha, ozs, gallons, gravity, minutes);
 
 			Assert.IsAssignableFrom(typeof(BitternessType), result.Type);
 			Assert.That(result.Type, Is.EqualTo(BitternessType.Ibu));
@@ -140,7 +140,7 @@ namespace Tests
 			decimal desiredIBU = 20m;
 			decimal elevation = 550m;
 
-			Bitterness result = Hops.CalculateIBUGaretz(alpha, ozs, finalVolume, boilVolume, gravity, minutes, desiredIBU, elevation);
+			Bitterness result = Hops.CalculateIbusGaretz(alpha, ozs, finalVolume, boilVolume, gravity, minutes, desiredIBU, elevation);
 
 			Assert.IsAssignableFrom(typeof(BitternessType), result.Type);
 			Assert.That(result.Type, Is.EqualTo(BitternessType.Ibu));
@@ -162,7 +162,7 @@ namespace Tests
 		{
 			decimal alpha = 6.0m;
 			decimal hopsOz = 1.0m;
-			Bitterness result = Hops.CalculateHBU(alpha, hopsOz);
+			Bitterness result = Hops.CalculateHbus(alpha, hopsOz);
 
 			Assert.IsAssignableFrom(typeof(BitternessType), result.Type);
 			Assert.That(result.Type, Is.EqualTo(BitternessType.Hbu));
