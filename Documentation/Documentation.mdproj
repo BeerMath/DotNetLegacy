@@ -13,8 +13,8 @@
     <OutputPath>.</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="Readme.txt" />
-    <None Include="GettingStarted.txt" />
-    <None Include="Developers.txt" />
+    <None Include="ReleaseNotes.md" />
+    <None Include="GettingStarted.md" />
+    <None Include="Developers.md" />
   </ItemGroup>
 </Project>
