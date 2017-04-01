@@ -1,63 +1,62 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerMathLibrary", "BeerMathLibrary\BeerMathLibrary.csproj", "{57990F4F-AAB8-479D-A4B7-3B26A78F9EF1}"
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerMathLib", "BeerMathLib\BeerMathLib.csproj", "{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerMathSampleApp", "BeerMathSampleApp\BeerMathSampleApp.csproj", "{40496203-1331-448E-B7AF-03509DFAD07E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp.csproj", "{611269B6-1E47-4C5D-897A-3AE764286794}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerMathSampleConsole", "BeerMathSampleConsole\BeerMathSampleConsole.csproj", "{E12B4809-BBA5-4F5B-96C9-04CAEB8DD317}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{FB9A6210-AFA1-4CC2-A6F8-1A03EA2DDE76}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Default|Any CPU = Default|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{57990F4F-AAB8-479D-A4B7-3B26A78F9EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57990F4F-AAB8-479D-A4B7-3B26A78F9EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57990F4F-AAB8-479D-A4B7-3B26A78F9EF1}.Default|Any CPU.ActiveCfg = Debug|Any CPU
-		{57990F4F-AAB8-479D-A4B7-3B26A78F9EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57990F4F-AAB8-479D-A4B7-3B26A78F9EF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{40496203-1331-448E-B7AF-03509DFAD07E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40496203-1331-448E-B7AF-03509DFAD07E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40496203-1331-448E-B7AF-03509DFAD07E}.Default|Any CPU.ActiveCfg = Debug|Any CPU
-		{40496203-1331-448E-B7AF-03509DFAD07E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40496203-1331-448E-B7AF-03509DFAD07E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E12B4809-BBA5-4F5B-96C9-04CAEB8DD317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E12B4809-BBA5-4F5B-96C9-04CAEB8DD317}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E12B4809-BBA5-4F5B-96C9-04CAEB8DD317}.Default|Any CPU.ActiveCfg = Debug|Any CPU
-		{E12B4809-BBA5-4F5B-96C9-04CAEB8DD317}.Default|Any CPU.Build.0 = Debug|Any CPU
-		{E12B4809-BBA5-4F5B-96C9-04CAEB8DD317}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E12B4809-BBA5-4F5B-96C9-04CAEB8DD317}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB9A6210-AFA1-4CC2-A6F8-1A03EA2DDE76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB9A6210-AFA1-4CC2-A6F8-1A03EA2DDE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB9A6210-AFA1-4CC2-A6F8-1A03EA2DDE76}.Default|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB9A6210-AFA1-4CC2-A6F8-1A03EA2DDE76}.Default|Any CPU.Build.0 = Debug|Any CPU
-		{FB9A6210-AFA1-4CC2-A6F8-1A03EA2DDE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB9A6210-AFA1-4CC2-A6F8-1A03EA2DDE76}.Release|Any CPU.Build.0 = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = BeerMathSampleConsole\BeerMathSampleConsole.csproj
-		Policies = $0
-		$0.StandardHeader = $1
-		$1.Text = @\n Author:\n   ${AuthorName} ${AuthorEmail}\n\n Copyright (c) ${Year}, ${CopyrightHolder}\n\n Microsoft Public License (Ms-PL)\n\nThis license governs use of the accompanying software. If you use the\nsoftware, you accept this license. If you do not accept the license, do not\nuse the software.\n\n1. Definitions\n\nThe terms "reproduce," "reproduction," "derivative works," and\n"distribution" have the same meaning here as under U.S. copyright law.\n\nA "contribution" is the original software, or any additions or changes to\nthe software.\n\nA "contributor" is any person that distributes its contribution under this\nlicense.\n\n"Licensed patents" are a contributor's patent claims that read directly on\nits contribution.\n\n2. Grant of Rights\n\n(A) Copyright Grant- Subject to the terms of this license, including the\nlicense conditions and limitations in section 3, each contributor grants\nyou a non-exclusive, worldwide, royalty-free copyright license to\nreproduce its contribution, prepare derivative works of its contribution,\nand distribute its contribution or any derivative works that you create.\n\n(B) Patent Grant- Subject to the terms of this license, including the\nlicense conditions and limitations in section 3, each contributor grants\nyou a non-exclusive, worldwide, royalty-free license under its licensed\npatents to make, have made, use, sell, offer for sale, import, and/or\notherwise dispose of its contribution in the software or derivative works\nof the contribution in the software.\n\n3. Conditions and Limitations\n\n(A) No Trademark License- This license does not grant you rights to use\nany contributors' name, logo, or trademarks.\n\n(B) If you bring a patent claim against any contributor over patents that\nyou claim are infringed by the software, your patent license from such\ncontributor to the software ends automatically.\n\n(C) If you distribute any portion of the software, you must retain all\ncopyright, patent, trademark, and attribution notices that are present\nin the software.\n\n(D) If you distribute any portion of the software in source code form,\nyou may do so only under this license by including a complete copy of\nthis license with your distribution. If you distribute any portion of the\nsoftware in compiled or object code form, you may only do so under a\nlicense that complies with this license.\n\n(E) The software is licensed "as-is." You bear the risk of using it. The\ncontributors give no express warranties, guarantees or conditions. You\nmay have additional consumer rights under your local laws which this\nlicense cannot change. To the extent permitted under your local laws,\nthe contributors exclude the implied warranties of merchantability,\nfitness for a particular purpose and non-infringement.\n
-		$1.inheritsSet = MITX11License
-		$0.VersionControlPolicy = $2
-		$2.inheritsSet = Mono
-		$0.DotNetNamingPolicy = $3
-		$3.DirectoryNamespaceAssociation = None
-		$3.ResourceNamePolicy = FileFormatDefault
-		$0.ChangeLogPolicy = $4
-		$4.UpdateMode = None
-		$4.MessageStyle = $5
-		$5.LineAlign = 0
-		$4.inheritsSet = Mono
-		version = 0.3
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}.Debug|x64.ActiveCfg = Debug|x64
+		{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}.Debug|x64.Build.0 = Debug|x64
+		{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}.Debug|x86.ActiveCfg = Debug|x86
+		{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}.Debug|x86.Build.0 = Debug|x86
+		{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}.Release|x64.ActiveCfg = Release|x64
+		{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}.Release|x64.Build.0 = Release|x64
+		{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}.Release|x86.ActiveCfg = Release|x86
+		{6593B3BB-DBBA-4B5C-B583-D9E7924FF64D}.Release|x86.Build.0 = Release|x86
+		{611269B6-1E47-4C5D-897A-3AE764286794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{611269B6-1E47-4C5D-897A-3AE764286794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{611269B6-1E47-4C5D-897A-3AE764286794}.Debug|x64.ActiveCfg = Debug|x64
+		{611269B6-1E47-4C5D-897A-3AE764286794}.Debug|x64.Build.0 = Debug|x64
+		{611269B6-1E47-4C5D-897A-3AE764286794}.Debug|x86.ActiveCfg = Debug|x86
+		{611269B6-1E47-4C5D-897A-3AE764286794}.Debug|x86.Build.0 = Debug|x86
+		{611269B6-1E47-4C5D-897A-3AE764286794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{611269B6-1E47-4C5D-897A-3AE764286794}.Release|Any CPU.Build.0 = Release|Any CPU
+		{611269B6-1E47-4C5D-897A-3AE764286794}.Release|x64.ActiveCfg = Release|x64
+		{611269B6-1E47-4C5D-897A-3AE764286794}.Release|x64.Build.0 = Release|x64
+		{611269B6-1E47-4C5D-897A-3AE764286794}.Release|x86.ActiveCfg = Release|x86
+		{611269B6-1E47-4C5D-897A-3AE764286794}.Release|x86.Build.0 = Release|x86
+		{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}.Debug|x64.ActiveCfg = Debug|x64
+		{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}.Debug|x64.Build.0 = Debug|x64
+		{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}.Debug|x86.ActiveCfg = Debug|x86
+		{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}.Debug|x86.Build.0 = Debug|x86
+		{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}.Release|x64.ActiveCfg = Release|x64
+		{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}.Release|x64.Build.0 = Release|x64
+		{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}.Release|x86.ActiveCfg = Release|x86
+		{F891E3E5-FF7D-47B6-95D5-A71FBB64CFF3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal

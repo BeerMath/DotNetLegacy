@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BeerMathLibrary\BeerMathLib.Core.csproj" />
+    <ProjectReference Include="..\BeerMathLib\BeerMathLib.csproj" />
   </ItemGroup>
 
 </Project>
