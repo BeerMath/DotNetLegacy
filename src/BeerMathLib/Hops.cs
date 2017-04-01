@@ -1,71 +1,3 @@
-// 
-//  Author:
-//    Matt Cooper vtbassmatt@gmail.com
-// 
-//  Copyright (c) 2010, Matt Cooper
-// 
-//  Microsoft Public License (Ms-PL)
-// 
-// This license governs use of the accompanying software. If you use the
-// software, you accept this license. If you do not accept the license, do not
-// use the software.
-// 
-// 1. Definitions
-// 
-// The terms "reproduce," "reproduction," "derivative works," and
-// "distribution" have the same meaning here as under U.S. copyright law.
-// 
-// A "contribution" is the original software, or any additions or changes to
-// the software.
-// 
-// A "contributor" is any person that distributes its contribution under this
-// license.
-// 
-// "Licensed patents" are a contributor's patent claims that read directly on
-// its contribution.
-// 
-// 2. Grant of Rights
-// 
-// (A) Copyright Grant- Subject to the terms of this license, including the
-// license conditions and limitations in section 3, each contributor grants
-// you a non-exclusive, worldwide, royalty-free copyright license to
-// reproduce its contribution, prepare derivative works of its contribution,
-// and distribute its contribution or any derivative works that you create.
-// 
-// (B) Patent Grant- Subject to the terms of this license, including the
-// license conditions and limitations in section 3, each contributor grants
-// you a non-exclusive, worldwide, royalty-free license under its licensed
-// patents to make, have made, use, sell, offer for sale, import, and/or
-// otherwise dispose of its contribution in the software or derivative works
-// of the contribution in the software.
-// 
-// 3. Conditions and Limitations
-// 
-// (A) No Trademark License- This license does not grant you rights to use
-// any contributors' name, logo, or trademarks.
-// 
-// (B) If you bring a patent claim against any contributor over patents that
-// you claim are infringed by the software, your patent license from such
-// contributor to the software ends automatically.
-// 
-// (C) If you distribute any portion of the software, you must retain all
-// copyright, patent, trademark, and attribution notices that are present
-// in the software.
-// 
-// (D) If you distribute any portion of the software in source code form,
-// you may do so only under this license by including a complete copy of
-// this license with your distribution. If you distribute any portion of the
-// software in compiled or object code form, you may only do so under a
-// license that complies with this license.
-// 
-// (E) The software is licensed "as-is." You bear the risk of using it. The
-// contributors give no express warranties, guarantees or conditions. You
-// may have additional consumer rights under your local laws which this
-// license cannot change. To the extent permitted under your local laws,
-// the contributors exclude the implied warranties of merchantability,
-// fitness for a particular purpose and non-infringement.
-// 
-
 using System;
 
 namespace BeerMath
@@ -74,7 +6,7 @@ namespace BeerMath
 
 	public sealed class Hops
 	{
-		
+
 		// Tinseth constants
 		// http://realbeer.com/hops/research.html
 		/// <summary>
@@ -173,7 +105,7 @@ namespace BeerMath
 		{
 			return CalculateIbus (AlphaAcid, HopsOzs, BoilMinutes);
 		}
-		
+
 		/// <summary>
 		/// Calculates IBUs using the Glenn Tinseth method
 		/// </summary>
@@ -198,8 +130,8 @@ namespace BeerMath
 		public static Bitterness CalculateIbusTinseth (decimal AlphaAcid, decimal HopsOzs, decimal BoilMinutes, Gravity Gravity, decimal WortGallons)
 		{
 			// IBUs = (Boil Time Factor * Bigness Factor) * (mg/l of added alpha acids)
-			return new Bitterness(_BoilTimeFactor(BoilMinutes) 
-			                        * _BignessFactor(Gravity) 
+			return new Bitterness(_BoilTimeFactor(BoilMinutes)
+			                        * _BignessFactor(Gravity)
 			                        * _MgAlphaAcids(AlphaAcid, HopsOzs, WortGallons),
 			                      BitternessType.Ibu);
 		}
@@ -222,7 +154,7 @@ namespace BeerMath
 			*/
 			if(BoilMinutes < 0)
 				throw new BeerMathException("Boil time cannot be negative");
-			
+
 			if(BoilMinutes <= 5)
 				return 5m;
 			if(BoilMinutes <= 10)
@@ -294,7 +226,7 @@ namespace BeerMath
 			Gravity WortGravity, decimal BoilTimeMinutes)
 		{
 			decimal GravityAdjustment = 0;
-			
+
 			// According to Rager, if the gravity of the wort exceeds 1.050, there needs to be a gravity adjustment in the equation.
 			if (WortGravity.Value > RagerGravityAdjustmentMinimum)
 			{
@@ -309,11 +241,11 @@ namespace BeerMath
 			AlphaAcidRating = AlphaAcidRating / 100m;
 
 			return new Bitterness(
-						(HopsOz 
-							* Utilization 
-							* AlphaAcidRating 
-							* RagerMetricConversionFactor) 
-						/ (Volume 
+						(HopsOz
+							* Utilization
+							* AlphaAcidRating
+							* RagerMetricConversionFactor)
+						/ (Volume
 							* (1 + GravityAdjustment)),
 				BitternessType.Ibu);
 		}
@@ -334,7 +266,7 @@ namespace BeerMath
 
 		/// <summary>
 		/// Calculates the IBU a sample of hops in the batch by the Garetz method.
-		/// This is intended to be an iterative method. You must guess at the final result, 
+		/// This is intended to be an iterative method. You must guess at the final result,
 		/// and rerun the process, each time adjusting the value downward.
 		/// </summary>
 		/// <param name="AlphaAcidRating">
@@ -388,7 +320,7 @@ namespace BeerMath
 			decimal Utilization = _GaretzUtilization(BoilTimeMinutes);
 
 			return new Bitterness((Utilization * AlphaAcidRating * HopsOz * GaretzMetricConversionFactor)
-									/ (FinalVolume * CombinedAdjustments), 
+									/ (FinalVolume * CombinedAdjustments),
 						BitternessType.Ibu);
 		}
 
@@ -403,7 +335,7 @@ namespace BeerMath
 		{
 			if (BoilTimeMinutes < 0)
 				throw new BeerMathException("Boil time cannot be negative");
-			
+
 			if (BoilTimeMinutes >= 0 && BoilTimeMinutes <= 10)
 				return 0;
 			else if (BoilTimeMinutes >= 11 && BoilTimeMinutes <= 15)
@@ -438,7 +370,7 @@ namespace BeerMath
 		/// Calculates the balance (BU:GU) or bittering units to gravity units of the batch.
 		/// </summary>
 		/// <param name="FinalGravity">
-		/// A <see cref="Gravity"/> representing the final gravity of the batch. 
+		/// A <see cref="Gravity"/> representing the final gravity of the batch.
 		/// This should be a value in whole numbers, like 40 instead of 1.040.
 		/// </param>
 		/// <param name="OriginalGravity">
